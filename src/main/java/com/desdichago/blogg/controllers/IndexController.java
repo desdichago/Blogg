@@ -1,19 +1,22 @@
 package com.desdichago.blogg.controllers;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class IndexController {
 
     @GetMapping("/")
-    String index() {
-        return "index page";
+    String index(Model model) {
+        model.addAttribute("page_name", "Index page");
+        return "index";
     }
 
     @GetMapping("/about")
-    String about() {
-        return "about page";
+    String about(Model model) {
+        model.addAttribute("page_name", "About page");
+        return "index";
     }
 
 }
